@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: "Vivati Comandas",
   description: "Gestão de comandas para restaurantes e lanchonetes.",
