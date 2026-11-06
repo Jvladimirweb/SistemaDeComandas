@@ -370,8 +370,8 @@ export default async function RelatoriosPage({ searchParams }: Props) {
               DetalhesCancelamento: order.cancellation_details || "",
             }))}
             payments={filteredPayments.map((payment) => ({
-              Comanda: payment.orders?.order_number ?? "",
-              Cliente: payment.orders?.customer_name || "Não informado",
+              Comanda: payment.orders?.[0]?.order_number ?? "",
+              Cliente: payment.orders?.[0]?.customer_name || "Não informado",
               FormaPagamento: payment.method,
               Valor: Number(payment.amount),
               Data: formatDate(payment.paid_at),
@@ -397,8 +397,8 @@ export default async function RelatoriosPage({ searchParams }: Props) {
               Data: formatDate(getOrderDate(order)),
             }))}
             payments={filteredPayments.map((payment) => ({
-              Comanda: payment.orders?.order_number ?? "",
-              Cliente: payment.orders?.customer_name || "Não informado",
+              Comanda: payment.orders?.[0]?.order_number ?? "",
+              Cliente: payment.orders?.[0]?.customer_name || "Não informado",
               FormaPagamento: payment.method,
               Valor: Number(payment.amount),
               Data: formatDate(payment.paid_at),
@@ -646,7 +646,7 @@ export default async function RelatoriosPage({ searchParams }: Props) {
 
               <tbody className="divide-y">
                 {filteredPayments.map((payment) => {
-                  const order = payment.orders;
+                  const order = payment.orders?.[0];
 
                   const paymentLabel =
                     paymentOptions.find(
