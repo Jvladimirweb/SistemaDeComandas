@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Arquivos locais do instalador e suporte da impressora
+/DriveImpressora/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
